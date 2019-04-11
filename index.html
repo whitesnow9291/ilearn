@@ -56,26 +56,28 @@
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>The Easiest Way To Show Browser Notifications</h1>
-        <p>This simple demo aims to show you the easiest possible way to display web notifications using <a href="https://github.com/Nickersoft/push.js" target="_blank">Push.js</a>.</p> 
-
-        <button id="demo-btn">Show notification</button>
-
-        <p class="footer">To read the full article go to <a href="http://tutorialzine.com/2017/01/the-easiest-way-to-show-browser-notifications">tutorialzine.com</a></p>    
-        <p class="footer">The source code for this demo is available on <a href="https://github.com/tutorialzine/web-notifications-demo">GitHub</a></p>
-    </div>
     
 
 </body>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/push.js/0.0.11/push.min.js"></script>
 <script>
 
+    var words = [
+        {
+            label: '辛苦了',
+            value: 'xīnkǔ le'
+        },
+        {
+            label: '喜欢凤爪',
+            value: 'xǐhuān fèngzhǎo'
+        },
+    ]
     Push.Permission.request();
 
-    document.getElementById('demo-btn').onclick = function () {
-        Push.create('Hi there!', {
-            body: 'This is a notification./n This is a notification.This is a notification.This is a notification.',
+    function showNotification(item){
+        
+        Push.create(item.label, {
+            body: item.value,
             icon: 'icon.png',
             timeout: 10000,                  // Timeout before notification closes automatically.
             vibrate: [100, 100, 100],       // An array of vibration pulses for mobile devices.
@@ -84,7 +86,17 @@
                 console.log(this);
             }  
         });
-    };
+
+    }
+    function willShow() {
+        var land = Math.floor(Math.random() * 10);
+        if (land > 5) {
+            rand = Math.floor(Math.random() * words.length);
+            let item = words[rand]
+            showNotification(item)
+        }
+    }
+    setInterval(willShow, 60000);
 
 </script>
 </html>
