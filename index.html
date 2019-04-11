@@ -3,9 +3,16 @@
 <html>
 <head>
     <meta charset="utf-8">
+    <style>
+        * {
+            color: red;
+        }
+    </style>
 </head>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/push.js/0.0.11/push.min.js"></script>
+<body>
+    
 <button onclick="showexample()">Show example</button>
 <script>
     var words = [
@@ -198,7 +205,8 @@
         },{
             label: '好啊',
             value: 'Hǎo a'
-        },
+        }, 
+        // lessen 17   
     ]
     Push.Permission.request();
     function showexample() {
@@ -230,4 +238,6 @@
     setInterval(willShow, 60000);
 
 </script>
+
+</body>
 </html>
