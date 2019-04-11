@@ -1,5 +1,5 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/push.js/0.0.11/push.min.js"></script>
-<button onclick="showexample()"></button>
+<button onclick="showexample()">Show example</button>
 <script>
 
     var words = [
@@ -14,6 +14,7 @@
     ]
     Push.Permission.request();
     function showexample() {
+        console.info(words);
         showNotification(words[0])
     }
     function showNotification(item){
