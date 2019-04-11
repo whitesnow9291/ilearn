@@ -1,21 +1,49 @@
+16px;
+            text-transform: uppercase;
+            cursor: pointer;
+            opacity: 0.9;
+            border-radius: 4px;
+            margin: 45px auto;
+            display: block;
+            font-weight: bold;
+        }
+        #demo-btn:hover {
+            opacity: 1;
+        }
+        p.footer {
+            color: #889098;
+            font-size: 15px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>The Easiest Way To Show Browser Notifications</h1>
+        <p>This simple demo aims to show you the easiest possible way to display web notifications using <a href="https://github.com/Nickersoft/push.js" target="_blank">Push.js</a>.</p> 
 
-<html>
-        <title>I Learn</title>
-        <body>
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/push.js/0.0.11/push.min.js"></script>
-            <script>
-                Push.Permission.request();
-                Push.create('Hi there!', {
-                    body: 'This is a notification.',
-                    icon: 'icon.png',
-                    timeout: 8000,               // Timeout before notification closes automatically.
-                    vibrate: [100, 100, 100],    // An array of vibration pulses for mobile devices.
-                    onClick: function() {
-                        // Callback for when the notification is clicked. 
-                        console.log(this);
-                    }  
-                });
-            </script>
-            <h1>I Learn</h1>
-        </body>
-    </html>
+        <button id="demo-btn">Show notification</button>
+
+        <p class="footer">To read the full article go to <a href="http://tutorialzine.com/2017/01/the-easiest-way-to-show-browser-notifications">tutorialzine.com</a></p>    
+        <p class="footer">The source code for this demo is available on <a href="https://github.com/tutorialzine/web-notifications-demo">GitHub</a></p>
+    </div>
+    
+
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/push.js/0.0.11/push.min.js"></script>
+<script>
+    Push.Permission.request();
+    document.getElementById('demo-btn').onclick = function () {
+        Push.create('Hi there!', {
+            body: 'This is a notification.',
+            icon: 'icon.png',
+            timeout: 8000,                  // Timeout before notification closes automatically.
+            vibrate: [100, 100, 100],       // An array of vibration pulses for mobile devices.
+            onClick: function() {
+                // Callback for when the notification is clicked. 
+                console.log(this);
+            }  
+        });
+    };
+</script>
+</html>
