@@ -211,10 +211,12 @@
     Push.Permission.request();
     function showexample() {
         console.info(words);
-        showNotification(words[0])
+        showNotification()
     }
-    function showNotification(item){
+    function showNotification(){
         
+        let rand = Math.floor(Math.random() * words.length);
+        let item = words[rand]
         Push.create(item.label, {
             body: item.value,
             icon: 'icon.png',
@@ -230,9 +232,7 @@
     function willShow() {
         var land = Math.floor(Math.random() * 10);
         if (land > 5) {
-            rand = Math.floor(Math.random() * words.length);
-            let item = words[rand]
-            showNotification(item)
+            showNotification()
         }
     }
     setInterval(willShow, 60000);
