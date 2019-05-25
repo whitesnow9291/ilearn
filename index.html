@@ -219,21 +219,21 @@
         let item = words[rand]
         Push.create(item.label, {
             body: item.value,
-            icon: 'icon.png',
-            timeout: 30000,                  // Timeout before notification closes automatically.
+            icon: 'icon.png',           // Timeout before notification closes automatically.
             vibrate: [100, 100, 100],       // An array of vibration pulses for mobile devices.
             onClick: function() {
                 // Callback for when the notification is clicked. 
-                console.log(this);
+                window.focus();
+                this.close();
             }  
         });
 
     }
     function willShow() {
-        // var land = Math.floor(Math.random() * 10);
-        // if (land > 5) {
+        var land = Math.floor(Math.random() * 10);
+        if (land > 5) {
             showNotification()
-        // }
+        }
     }
     setInterval(willShow, 60000);
 
