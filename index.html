@@ -219,7 +219,8 @@
         let item = words[rand]
         Push.create(item.label, {
             body: item.value,
-            icon: 'icon.png',           // Timeout before notification closes automatically.
+            icon: 'icon.png',    
+            timeout: 50000,       // Timeout before notification closes automatically.
             vibrate: [100, 100, 100],       // An array of vibration pulses for mobile devices.
             onClick: function() {
                 // Callback for when the notification is clicked. 
